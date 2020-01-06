@@ -1,0 +1,65 @@
+# utilizado na geração das rotinas do routes.py
+
+list_form_key = '@@LIST_FORM@@'  # Delimitador do nome do form para o formulario de listagem
+list_form_value = 'ListaForm' # Nome do form para o formulario de listagem
+
+# utilizado na geração das rotinas do routes.py
+insert_form_key = '@@INSERT_FORM@@'  # Delimitador do nome do form para o formulario de inclusão
+insert_form_value = 'IncluiForm' # Nome do form para o formulario de inclusão
+
+# utilizado na geração das rotinas do routes.py
+update_form_key = '@@UPDATE_FORM@@'  # Delimitador do form para o formulario de alteração
+update_form_value = 'AlteraForm' # Nome do nome do form para o formulario de alteração
+
+# utilizado na geração das rotinas do routes.py
+table_model_key = '@@TABLE_MODEL@@'  # Delimitador do nome da tabela no modelo
+table_model_value = 'Empresa' # Nome da tabela no modelo
+
+# utilizado na geração das rotinas: lista.html, inclui.html, altera.html e routes.py
+database_name_key = '@@DATABASE_NAME@@'  # Delimitador do nome da tabela no banco de dados
+database_name_value = 'db_projeto_modelo' # Nome da tabela no banco de dados
+
+# utilizado na geração das rotinas: lista.html, inclui.html, altera.html e routes.py
+table_name_key = '@@TABLE_NAME@@'  # Delimitador do nome da tabela no banco de dados
+table_name_value = 'tb_empresa_emp' # Nome da tabela no banco de dados
+
+# utilizado na geração das rotinas do routes.py
+table_pk_key = '@@TABLE_PK@@'  # Delimitador do nome da Primary Key da tabela no banco de dados
+table_pk_value = 'id_empresa' # Nome da Primary Key da tabela no banco de dados
+
+# utilizado na criação do banco de dados
+table_column_key = '@@TABLE_COLUMN@@'  # Delimitador do nome das colunas da tabela no banco de dados
+table_column_list = ['id_empresa', 'ds_nomefantasia_emp', 'ds_razaosocial_emp', 'ds_cnpj_emp', 'ds_cidade_emp']  # Nome dos atributos para a criação do banco de dados
+table_column_length_list = ['10', '60', '100', '25', '50']  # Lista dos tamanhos das colunas para a criação do banco de dados
+table_column_type_list = ['int', 'string', 'string', 'string', 'string']  # Lista dos tipos das colunas para a criação do banco de dados - tipos disponiveis: 'int', 'string', 'datetime', 'text', 'boolean'
+
+# utilizado na geração no formulario de listagem em html: lista.html
+title_column_key = '@@TITLE_COLUMN@@'  # Delimitador do nome dos títulos das colunas para a tela: lista.html
+title_column_list = ['Seq', 'Nome Fantasia', 'Razão Social']  # Lista dos nomes das colunas e labels
+detail_column_list = ['id_empresa', 'ds_nomefantasia_emp', 'ds_razaosocial_emp']  # Nome dos atributos para a criação do banco de dados para a tela: lista.html
+length_column_form_list = ['10', '200', '350']  # Lista dos tamanhos das colunas para a tela: lista.html
+length_column_rel_list = ['30', '150', '300']  # Lista dos tamanhos das colunas para o relatório
+
+# utilizado na geração no formulario de listagem em html: lista.html
+delete_key = '@@DELETE@@'  # Delimitador do nome do atributo da tabela para a rotina de exclusão
+delete_value = 'ds_nomefantasia_emp' # Nome do atributo da tabela para a rotina de exclusão
+
+# utilizado na geração no formulario de inclusão em html: inclui.html
+form_insert_key = '@@FORM_INSERT@@'  # Delimitador da lista de atributos para inclusão de dados no banco de dados
+form_title_insert_list = ['Nome Fantasia', 'Razão Social', 'CNPJ', 'Cidade']  # Lista dos nomes das colunas
+form_insert_list = ['ds_nomefantasia_emp', 'ds_razaosocial_emp', 'ds_cnpj_emp', 'ds_cidade_emp']   # Lista de atributos para inclusão de dados no banco de dados
+form_insert_column_type_list = ['string', 'string', 'string', 'string']  # Lista dos tipos das colunas para a criação do banco de dados
+
+# utilizado na geração no formulario de alteração em html: altera.html
+form_update_key = '@@FORM_UPDATE@@'  # Delimitador da lista de atributos para atualização de dados no banco de dados
+form_title_update_list = ['Nome Fantasia', 'Razão Social', 'CNPJ', 'Cidade']  # Lista dos nomes das colunas
+form_update_list = ['ds_nomefantasia_emp', 'ds_razaosocial_emp', 'ds_cnpj_emp', 'ds_cidade_emp']   # Lista de atributos para atualização de dados no banco de dados
+form_update_column_type_list = ['string', 'string', 'string', 'string']  # Lista dos tipos das colunas para a criação do banco de dados
+
+# utilizado na geração das rotinas do routes.py
+insert_sql_key = '@@INSERT_SQL@@'  # Delimitador para montar os campos do insert no banco de dados da função inserir
+update_sql_get_key = '@@UPDATE_SQL_GET@@'  # Delimitador para montar os campos do update do metodo GET da função alterar
+update_sql_post_key = '@@UPDATE_SQL_POST@@'  # Delimitador para montar os campos do update do metodo POST da função alterar
+print_list_key = '@@PRINT_LIST@@'  # Delimitador para montar os campos do relatório
+ordenarpor_choices_key = '@@ORDENARPOR_CHOICES@@'  # Delimitador para montar o ordenarpor_choices do forms.py
+models_attributes_key = '@@MODELS_ATTR@@'  # Delimitador para montar a lista de atributos do model.py
