@@ -1,0 +1,207 @@
+{%  extends "material/base.html" %}
+{%  block content  %}
+
+<nav class="purple">
+  <div class="nav-wrapper">
+    <a href="">GeraParams - Gera Parâmetros para o CRUD</a>
+  </div>
+</nav>
+
+<div class="row">
+
+  <form class="col s12">
+
+    <div class="row">
+
+      <div class="input-field col s3">
+        <input id="id_conexao_bd" type="text" class="validate">
+        <label for="id_conexao_bd">Conexão com BD</label>
+      </div>
+
+      <div class="input-field col s3">
+        <input id="id_nome_bd" type="text" class="validate">
+        <label for="id_nome_bd">Nome do BD</label>
+      </div>
+
+      <div class="input-field col s3">
+        <input id="id_nome_tabela" type="text" class="validate">
+        <label for="id_nome_tabela">Nome da Tabela</label>
+      </div>
+
+      <div class="input-field col s3">
+        <input id="id_nome_model" type="text" class="validate">
+        <label for="id_nome_model">Nome da Tabela Model</label>
+      </div>
+
+    </div>
+
+  </form>
+</div>
+
+
+<div>
+
+  <div class="row">
+
+    <div class="input-field col s2">
+      <input id="id_atributo" type="text" class="validate">
+      <label for="id_atributo">Atributo</label>
+    </div>
+
+    <div class="input-field col s1">
+      <select>
+        <option value="" disabled selected>Escolha opção</option>
+        <option value="1">T</option>
+        <option value="2">F</option>
+      </select>
+      <label>Pk</label>
+    </div>
+
+    <div class="input-field col s1">
+      <select>
+        <option value="" disabled selected>Escolha opção</option>
+        <option value="1">T</option>
+        <option value="2">F</option>
+      </select>
+      <label>Inc</label>
+    </div>
+
+    <div class="input-field col s1">
+      <select>
+        <option value="" disabled selected>Escolha opção</option>
+        <option value="1">T</option>
+        <option value="2">F</option>
+      </select>
+      <label>Alt</label>
+    </div>
+
+    <div class="input-field col s1">
+      <select>
+        <option value="" disabled selected>Escolha opção</option>
+        <option value="1">T</option>
+        <option value="2">F</option>
+      </select>
+      <label>Exc</label>
+    </div>
+
+    <div class="input-field col s1">
+      <select>
+        <option value="" disabled selected>Escolha opção</option>
+        <option value="1">Int</option>
+        <option value="2">String</option>
+        <option value="2">Boolean</option>
+        <option value="2">DateTime</option>
+        <option value="2">Text</option>
+      </select>
+      <label>Tipo</label>
+    </div>
+
+    <div class="input-field col s1">
+      <input id="id_titulo" type="text" class="validate">
+      <label for="id_titulo">Titulo</label>
+    </div>
+
+    <div class="input-field col s1">
+      <input id="id_tam_bd" type="text" class="validate">
+      <label for="id_tam_bd">Tam. BD</label>
+    </div>
+
+    <div class="input-field col s1">
+      <input id="id_tam_lista" type="text" class="validate">
+      <label for="id_tam_lista">Tam.Lista</label>
+    </div>
+
+    <div class="input-field col s1">
+      <input id="id_tam_relat" type="text" class="validate">
+      <label for="id_tam_relat">Tam. Relat</label>
+    </div>
+
+    <div class="input-field col s1">
+      <a href="{{ url_for('incluir') }}" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Novo">
+        <i class="material-icons cor-verde">note_add</i>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<table>
+
+  <thead>
+    <tr>
+      <th>Atributo</th><th>Pk</th><th>Inc</th><th>Alt</th><th>Exc</th><th>Tipo</th><th>Titulo</th><th>Tam. BD</th><th>Tam. Lista</th><th>Tam. Relat.</th><th>Ação</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    {% for list in lista %}
+
+      <tr>
+        <td style="vertical-align:middle">{{ list.atributo }}</td>
+        <td style="vertical-align:middle">{{ list.pk }}</td>
+        <td style="vertical-align:middle">{{ list.inc }}</td>
+        <td style="vertical-align:middle">{{ list.alt }}</td>
+        <td style="vertical-align:middle">{{ list.exc }}</td>
+        <td style="vertical-align:middle">{{ list.tipo }}</td>
+        <td style="vertical-align:middle">{{ list.titulo }}</td>
+        <td style="vertical-align:middle">{{ list.tam_bd }}</td>
+        <td style="vertical-align:middle">{{ list.tam_lista }}</td>
+        <td style="vertical-align:middle">{{ list.tam_relat }}</td>
+        <td class="text-center center-align">
+
+          <a href="{{ url_for('delete', id=list.key) }}" class="btn btn-ligth btn-sm" role="button" title="Alterar Dados">
+            <i class="material-icons cor-azul" style="vertical-align:middle;">delete</i>
+          </a>
+
+        </td>
+      </tr>
+
+    {% endfor %}
+
+  </tbody>
+
+</table>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <script type = "text/javascript">
+
+    // Sidenav
+    const sideNav = document.querySelector('.sidenav');
+    M.Sidenav.init(sideNav, {});
+
+    // ScrollSpy
+    const ss = document.querySelectorAll('.scrollspy');
+    M.ScrollSpy.init(ss, {});
+
+    // DropDown
+    var dropdowns = document.querySelectorAll('.dropdown-trigger')
+    // console.log(dropdowns);
+    for (var i = 0; i < dropdowns.length; i++){
+        M.Dropdown.init(dropdowns[i]);
+    }
+
+    //Select
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, {});
+    });
+
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+
+    // Modal
+    var modal = document.querySelectorAll('.modal');
+    // console.log(modal);
+    for (var i = 0; i < modal.length; i++){
+        M.Modal.init(modal[i]);
+    }
+
+  </script>
+
+{%  endblock %}
