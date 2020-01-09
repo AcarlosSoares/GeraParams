@@ -3,9 +3,19 @@
 
 <nav class="purple">
   <div class="nav-wrapper">
-    <a href="">GeraParams - Gera Parâmetros para o CRUD</a>
+    <h4>
+      <a href="">GeraParams - Gera Parâmetros para o CRUD</a>
+    </h4>
   </div>
 </nav>
+
+<div>
+  <h6>
+    {% if error %}
+      <p class=error><strong>* * * </strong> {{ error }}
+    {% endif %}
+  </h6>
+</div>
 
 <div class="row">
 
@@ -28,9 +38,13 @@
         <label for="id_nome_tabela">Nome da Tabela</label>
       </div>
 
-      <div class="input-field col s3">
+      <div class="input-field col s2">
         <input id="id_nome_model" name="nome_model" type="text" class="validate">
         <label for="id_nome_model">Nome da Tabela Model</label>
+      </div>
+
+      <div class="input-field col s1">
+        <input type="submit" name="gerar_params" value="Gerar" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="gerar Params">
       </div>
 
     </div>
