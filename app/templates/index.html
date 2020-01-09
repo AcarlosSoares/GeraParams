@@ -9,28 +9,116 @@
 
 <div class="row">
 
-  <form class="col s12">
+  <form class="col s12" action="{{ url_for('incluir') }}" method="post">
 
     <div class="row">
 
       <div class="input-field col s3">
-        <input id="id_conexao_bd" type="text" class="validate">
+        <input id="id_conexao_bd" name="conexao_bd" type="text" class="validate">
         <label for="id_conexao_bd">Conexão com BD</label>
       </div>
 
       <div class="input-field col s3">
-        <input id="id_nome_bd" type="text" class="validate">
+        <input id="id_nome_bd" name="nome_bd" type="text" class="validate">
         <label for="id_nome_bd">Nome do BD</label>
       </div>
 
       <div class="input-field col s3">
-        <input id="id_nome_tabela" type="text" class="validate">
+        <input id="id_nome_tabela" name="nome_tabela" type="text" class="validate">
         <label for="id_nome_tabela">Nome da Tabela</label>
       </div>
 
       <div class="input-field col s3">
-        <input id="id_nome_model" type="text" class="validate">
+        <input id="id_nome_model" name="nome_model" type="text" class="validate">
         <label for="id_nome_model">Nome da Tabela Model</label>
+      </div>
+
+    </div>
+
+    <div>
+
+      <div class="row">
+
+        <div class="input-field col s2">
+          <input id="id_atributo" name="atributo" type="text" class="validate">
+          <label for="id_atributo">Atributo</label>
+        </div>
+
+        <div class="input-field col s1">
+          <select id="id_pk" name="pk">
+            <!-- <option value="" disabled selected>Escolha opção</option> -->
+            <option value="T">T</option>
+            <option value="F">F</option>
+          </select>
+          <label for="id_pk">Pk</label>
+        </div>
+
+        <div class="input-field col s1">
+          <select id="id_inc" name="inc">
+            <!-- <option value="" disabled selected>Escolha opção</option> -->
+            <option value="T">T</option>
+            <option value="F">F</option>
+          </select>
+          <label for="id_inc">Inc</label>
+        </div>
+
+        <div class="input-field col s1">
+          <select id="id_alt" name="alt">
+            <!-- <option value="" disabled selected>Escolha opção</option> -->
+            <option value="T">T</option>
+            <option value="F">F</option>
+          </select>
+          <label for="id_alt">Alt</label>
+        </div>
+
+        <div class="input-field col s1">
+          <select id="id_exc" name="exc">
+            <!-- <option value="" disabled selected>Escolha opção</option> -->
+            <option value="T">T</option>
+            <option value="F">F</option>
+          </select>
+          <label for="id_exc">Exc</label>
+        </div>
+
+        <div class="input-field col s1">
+          <select id="id_tipo" name="tipo">
+            <!-- <option value="" disabled selected>Escolha opção</option> -->
+            <option value="Int">Int</option>
+            <option value="String">String</option>
+            <option value="Boolean">Boolean</option>
+            <option value="DateTime">DateTime</option>
+            <option value="Text">Text</option>
+          </select>
+          <label for="id_tipo">Tipo</label>
+        </div>
+
+        <div class="input-field col s1">
+          <input id="id_titulo" name="titulo" type="text" class="validate">
+          <label for="id_titulo">Titulo</label>
+        </div>
+
+        <div class="input-field col s1">
+          <input id="id_tam_bd" name="tam_bd" type="text" class="validate">
+          <label for="id_tam_bd">Tam. BD</label>
+        </div>
+
+        <div class="input-field col s1">
+          <input id="id_tam_lista" name="tam_lista" type="text" class="validate">
+          <label for="id_tam_lista">Tam.Lista</label>
+        </div>
+
+        <div class="input-field col s1">
+          <input id="id_tam_relat" name="tam_relat" type="text" class="validate">
+          <label for="id_tam_relat">Tam. Relat</label>
+        </div>
+
+        <div class="input-field col s1">
+          <input type="submit" value="Adicionar" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Adicionar">
+<!--           <a href="#!" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Novo">
+            <i class="material-icons cor-verde">note_add</i>
+          </a> -->
+        </div>
+
       </div>
 
     </div>
@@ -38,120 +126,44 @@
   </form>
 </div>
 
-
-<div>
-
-  <div class="row">
-
-    <div class="input-field col s2">
-      <input id="id_atributo" type="text" class="validate">
-      <label for="id_atributo">Atributo</label>
-    </div>
-
-    <div class="input-field col s1">
-      <select>
-        <option value="" disabled selected>Escolha opção</option>
-        <option value="1">T</option>
-        <option value="2">F</option>
-      </select>
-      <label>Pk</label>
-    </div>
-
-    <div class="input-field col s1">
-      <select>
-        <option value="" disabled selected>Escolha opção</option>
-        <option value="1">T</option>
-        <option value="2">F</option>
-      </select>
-      <label>Inc</label>
-    </div>
-
-    <div class="input-field col s1">
-      <select>
-        <option value="" disabled selected>Escolha opção</option>
-        <option value="1">T</option>
-        <option value="2">F</option>
-      </select>
-      <label>Alt</label>
-    </div>
-
-    <div class="input-field col s1">
-      <select>
-        <option value="" disabled selected>Escolha opção</option>
-        <option value="1">T</option>
-        <option value="2">F</option>
-      </select>
-      <label>Exc</label>
-    </div>
-
-    <div class="input-field col s1">
-      <select>
-        <option value="" disabled selected>Escolha opção</option>
-        <option value="1">Int</option>
-        <option value="2">String</option>
-        <option value="2">Boolean</option>
-        <option value="2">DateTime</option>
-        <option value="2">Text</option>
-      </select>
-      <label>Tipo</label>
-    </div>
-
-    <div class="input-field col s1">
-      <input id="id_titulo" type="text" class="validate">
-      <label for="id_titulo">Titulo</label>
-    </div>
-
-    <div class="input-field col s1">
-      <input id="id_tam_bd" type="text" class="validate">
-      <label for="id_tam_bd">Tam. BD</label>
-    </div>
-
-    <div class="input-field col s1">
-      <input id="id_tam_lista" type="text" class="validate">
-      <label for="id_tam_lista">Tam.Lista</label>
-    </div>
-
-    <div class="input-field col s1">
-      <input id="id_tam_relat" type="text" class="validate">
-      <label for="id_tam_relat">Tam. Relat</label>
-    </div>
-
-    <div class="input-field col s1">
-      <a href="{{ url_for('incluir') }}" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Novo">
-        <i class="material-icons cor-verde">note_add</i>
-      </a>
-    </div>
-
-  </div>
-
-</div>
-
 <table>
 
   <thead>
     <tr>
-      <th>Atributo</th><th>Pk</th><th>Inc</th><th>Alt</th><th>Exc</th><th>Tipo</th><th>Titulo</th><th>Tam. BD</th><th>Tam. Lista</th><th>Tam. Relat.</th><th>Ação</th>
+      <th>Key</th>
+      <th>Atributo</th>
+      <th>Pk</th>
+      <th>Inc</th>
+      <th>Alt</th>
+      <th>Exc</th>
+      <th>Tipo</th>
+      <th>Titulo</th>
+      <th>Tam. BD</th>
+      <th>Tam. Lista</th>
+      <th>Tam. Relat.</th>
+      <th>Ação</th>
     </tr>
   </thead>
 
   <tbody>
 
-    {% for list in lista %}
+    {% for key, value in lista.items() %}
 
       <tr>
-        <td style="vertical-align:middle">{{ list.atributo }}</td>
-        <td style="vertical-align:middle">{{ list.pk }}</td>
-        <td style="vertical-align:middle">{{ list.inc }}</td>
-        <td style="vertical-align:middle">{{ list.alt }}</td>
-        <td style="vertical-align:middle">{{ list.exc }}</td>
-        <td style="vertical-align:middle">{{ list.tipo }}</td>
-        <td style="vertical-align:middle">{{ list.titulo }}</td>
-        <td style="vertical-align:middle">{{ list.tam_bd }}</td>
-        <td style="vertical-align:middle">{{ list.tam_lista }}</td>
-        <td style="vertical-align:middle">{{ list.tam_relat }}</td>
+        <td style="vertical-align:middle">{{ key }}</td>
+        <td style="vertical-align:middle">{{ value.atributo }}</td>
+        <td style="vertical-align:middle">{{ value.pk }}</td>
+        <td style="vertical-align:middle">{{ value.inc }}</td>
+        <td style="vertical-align:middle">{{ value.alt }}</td>
+        <td style="vertical-align:middle">{{ value.exc }}</td>
+        <td style="vertical-align:middle">{{ value.tipo }}</td>
+        <td style="vertical-align:middle">{{ value.titulo }}</td>
+        <td style="vertical-align:middle">{{ value.tam_bd }}</td>
+        <td style="vertical-align:middle">{{ value.tam_lista }}</td>
+        <td style="vertical-align:middle">{{ value.tam_relat }}</td>
         <td class="text-center center-align">
 
-          <a href="{{ url_for('delete', id=list.key) }}" class="btn btn-ligth btn-sm" role="button" title="Alterar Dados">
+          <a href="{{ url_for('excluir', id=key) }}" class="btn btn-ligth btn-sm" role="button" title="Alterar Dados">
             <i class="material-icons cor-azul" style="vertical-align:middle;">delete</i>
           </a>
 
