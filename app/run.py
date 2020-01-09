@@ -8,7 +8,9 @@ from collections import OrderedDict
 app = Flask(__name__)
 Material(app)
 
-objeto = {
+dados =  {'conexao_bd':'', 'nome_bd':'', 'nome_tabela':'', 'nome_model':''}
+
+lista = {
 0 : {'atributo':'id_empresa', 'pk':'T', 'inc':'F', 'alt':'F', 'exc':'F', 'tipo':'Int', 'titulo':'Seq', 'tam_bd':'10', 'tam_lista':'10', 'tam_relat':'30'},
 1 : {'atributo':'ds_nomefantasia_emp','pk':'F', 'inc':'F', 'alt':'F', 'exc':'F', 'tipo':'String', 'titulo':'Nome Fantasia', 'tam_bd':'10', 'tam_lista':'10', 'tam_relat':'30'},
 2 : {'atributo':'ds_razaosocial_emp', 'pk':'F', 'inc':'F', 'alt':'F', 'exc':'F', 'tipo':'String', 'titulo':'Razão Social', 'tam_bd':'10', 'tam_lista':'10', 'tam_relat':'30'},
@@ -20,8 +22,8 @@ def index():
 
   message = None
 
-  objeto_sorted = {k : objeto[k] for k in sorted(objeto.keys())}
-  return render_template("index.html", lista=objeto_sorted, error=message)
+  lista_sorted = {k : lista[k] for k in sorted(lista.keys())}
+  return render_template("index.html", dados=dados, lista=lista_sorted, error=message)
 
 
 @app.route('/incluir', methods=['POST'])
@@ -34,8 +36,8 @@ def incluir():
     if gerarparams:
       gerarParams()
       message = "Arquivo 'geragrud.cnf' gerado com sucesso!"
-      objeto_sorted = {k : objeto[k] for k in sorted(objeto.keys())}
-      return render_template("index.html", lista=objeto_sorted, error=message)
+      lista_sorted = {k : lista[k] for k in sorted(lista.keys())}
+      return render_template("index.html", dados=dados, lista=lista_sorted, error=message)
   except Exception as e:
     gerarparams = None
 
@@ -46,56 +48,56 @@ def incluir():
 
   if not conexao_bd:
     message = "Conexão com BD deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   if not nome_bd:
     message = "Nome do BD deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   if not nome_tabela:
     message = "Nome da tabela do BD deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   if not nome_model:
     message = "Nome da tabela do BD no Model deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   atributo = request.form['atributo']
   if not atributo:
     message = "Nome do atributo da tabela do BD deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   titulo = request.form['titulo']
   if not titulo:
     message = "Nome Titulo deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   tam_bd = request.form['tam_bd']
   if not tam_bd:
     message = "Tamanho do atributo no BD deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   tam_lista = request.form['tam_lista']
   if not tam_lista:
     message = "Tamanho do atributo na Lista de Consulta deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   tam_relat = request.form['tam_relat']
   if not tam_relat:
     message = "Tamanho do atributo na Lista do Relatório deve ser preenchido!"
-    return render_template("index.html", lista=objeto, error=message)
+    return render_template("index.html", dados=dados, lista=lista, error=message)
     message = None
 
   val = 0
-  while val in objeto:
+  while val in lista:
     val += 1
 
   new_list ={
@@ -110,11 +112,16 @@ def incluir():
   'tam_lista':tam_lista,
   'tam_relat':tam_relat}
 
-  objeto[val] = new_list
+  dados['conexao_bd'] =  conexao_bd
+  dados['nome_bd'] =  nome_bd
+  dados['nome_tabela'] =  nome_tabela
+  dados['nome_model'] =  nome_model
 
-  objeto_sorted = {k : objeto[k] for k in sorted(objeto.keys())}
+  lista[val] = new_list
 
-  return render_template("index.html", lista=objeto_sorted, error=message)
+  lista_sorted = {k : lista[k] for k in sorted(lista.keys())}
+
+  return render_template("index.html", dados=dados, lista=lista_sorted, error=message)
 
 
 @app.route('/excluir/<int:id>')
@@ -122,11 +129,11 @@ def excluir(id):
 
   message = None
 
-  if id in objeto:
-    del objeto[id]
+  if id in lista:
+    del lista[id]
 
-  objeto_sorted = {k : objeto[k] for k in sorted(objeto.keys())}
-  return render_template("index.html", lista=objeto_sorted, error=message)
+  lista_sorted = {k : lista[k] for k in sorted(lista.keys())}
+  return render_template("index.html", dados=dados, lista=lista_sorted, error=message)
 
 
 def gerarParams():
@@ -135,6 +142,11 @@ def gerarParams():
   nome_bd = request.form['nome_bd']
   nome_tabela = request.form['nome_tabela']
   nome_model = request.form['nome_model']
+
+  dados['conexao_bd'] =  conexao_bd
+  dados['nome_bd'] =  nome_bd
+  dados['nome_tabela'] =  nome_tabela
+  dados['nome_model'] =  nome_model
 
   s = open("geracrud_novo.cnf","w", encoding='utf-8')
 
