@@ -1,19 +1,39 @@
-list_form_key = '@@LIST_FORM@@'
-list_form_value = 'ListaForm'
-insert_form_key = '@@INSERT_FORM@@'
-insert_form_value = 'IncluiForm'
-update_form_key = '@@UPDATE_FORM@@'
-update_form_value = 'AlteraForm'
-table_model_key = '@@TABLE_MODEL@@'
-table_model_value = 'Teste4'
-database_name_key = '@@DATABASE_NAME@@'
-database_name_value = 'Teste2'
-table_name_key = '@@TABLE_NAME@@'
-table_name_value = 'Teste3'
+# utilizado na geração das rotinas do routes.py
+route_list_form_key = '@@LIST_FORM@@'  # Delimitador do nome do form para o formulario de listagem
+route_list_form_value = 'ListaForm' # Nome do form para o formulario de listagem
+route_insert_form_key = '@@INSERT_FORM@@'  # Delimitador do nome do form para o formulario de inclusão
+route_insert_form_value = 'IncluiForm' # Nome do form para o formulario de inclusão
+route_update_form_key = '@@UPDATE_FORM@@'  # Delimitador do form para o formulario de alteração
+route_update_form_value = 'AlteraForm' # Nome do form para o formulario de alteração
 
-insert_sql_key = '@@INSERT_SQL@@'
-update_sql_get_key = '@@UPDATE_SQL_GET@@'
-update_sql_post_key = '@@UPDATE_SQL_POST@@'
-print_list_key = '@@PRINT_LIST@@'
-ordenarpor_choices_key = '@@ORDENARPOR_CHOICES@@'
-models_attributes_key = '@@MODELS_ATTR@@'
+# utilizado na geração das rotinas do routes.py
+table_model_key = '@@TABLE_MODEL@@'  # Delimitador do nome da tabela no modelo
+table_model_value = 'Teste'  # Nome da Tabela no Modelo
+
+# utilizado na geração das rotinas: lista.html, inclui.html, altera.html e routes.py
+database_name_key = '@@DATABASE_NAME@@'  # Delimitador do nome da tabela no banco de dados
+database_name_value = 'Teste'  # Nome do Banco de Dados
+
+# utilizado na geração das rotinas: lista.html, inclui.html, altera.html e routes.py
+table_name_key = '@@TABLE_NAME@@'  # Delimitador do nome da tabela no banco de dados
+table_name_value = 'Teste'  # Nome da Tabela no Banco de Dados
+
+# utilizado na geração das rotinas do routes.py
+table_pk_key = '@@TABLE_PK@@'  # Delimitador do nome da Primary Key da tabela no banco de dados
+table_pk_value = 'id_empresa' # Nome da Primary Key da tabela no banco de dados
+
+# utilizado na criação do banco de dados
+table_column_key = '@@TABLE_COLUMN@@'  # Delimitador do nome das colunas da tabela no banco de dados
+table_column_list = ['id_empresa', 'ds_nomefantasia_emp', 'ds_razaosocial_emp', 'ds_cnpj_emp', 'ds_cidade_emp']  # Nome dos atributos para a criação do banco de dados
+table_column_type_list = ['Int', 'String', 'String', 'String', 'String']  # Lista dos tipos das colunas para a criação do banco de dados - tipos disponiveis: int, string, datetime, text, boolean
+table_column_title_list = ['Seq', 'Nome Fantasia', 'Razão Social', 'CNPJ', 'Cidade']  # Nome dos atributos para a criação do banco de dados
+table_column_length_list = ['10', '10', '10', '10', '10']  # Lista dos tamanhos das colunas para a criação do banco de dados
+
+# utilizado na geração das rotinas do routes.py
+insert_sql_key = '@@INSERT_SQL@@'  # Delimitador para montar os campos do insert no banco de dados da função inserir
+update_sql_get_key = '@@UPDATE_SQL_GET@@'  # Delimitador para montar os campos do update do metodo GET da função alterar
+update_sql_post_key = '@@UPDATE_SQL_POST@@'  # Delimitador para montar os campos do update do metodo POST da função alterar
+print_list_key = '@@PRINT_LIST@@'  # Delimitador para montar os campos do relatório
+ordenarpor_choices_key = '@@ORDENARPOR_CHOICES@@'  # Delimitador para montar o ordenarpor_choices do forms.py
+models_attributes_key = '@@MODELS_ATTR@@'  # Delimitador para montar a lista de atributos do model.py
+
