@@ -68,6 +68,15 @@
         </div>
 
         <div class="input-field col s1">
+          <select id="id_lis" name="lis">
+            <!-- <option value="" disabled selected>Escolha opção</option> -->
+            <option value="T">T</option>
+            <option value="F">F</option>
+          </select>
+          <label for="id_lis">Lis</label>
+        </div>
+
+        <div class="input-field col s1">
           <select id="id_inc" name="inc">
             <!-- <option value="" disabled selected>Escolha opção</option> -->
             <option value="T">T</option>
@@ -97,11 +106,11 @@
         <div class="input-field col s1">
           <select id="id_tipo" name="tipo">
             <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="Int">Int</option>
-            <option value="String">String</option>
-            <option value="Boolean">Boolean</option>
-            <option value="DateTime">DateTime</option>
-            <option value="Text">Text</option>
+            <option value="int">Int</option>
+            <option value="string">String</option>
+            <option value="boolean">Boolean</option>
+            <option value="dateTime">DateTime</option>
+            <option value="text">Text</option>
           </select>
           <label for="id_tipo">Tipo</label>
         </div>
@@ -147,6 +156,7 @@
       <th>Key</th>
       <th>Atributo</th>
       <th>Pk</th>
+      <th>Lis</th>
       <th>Inc</th>
       <th>Alt</th>
       <th>Exc</th>
@@ -167,6 +177,7 @@
         <td style="vertical-align:middle">{{ key }}</td>
         <td style="vertical-align:middle">{{ value.atributo }}</td>
         <td style="vertical-align:middle">{{ value.pk }}</td>
+        <td style="vertical-align:middle">{{ value.lis }}</td>
         <td style="vertical-align:middle">{{ value.inc }}</td>
         <td style="vertical-align:middle">{{ value.alt }}</td>
         <td style="vertical-align:middle">{{ value.exc }}</td>
