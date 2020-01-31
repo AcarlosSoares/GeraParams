@@ -8,15 +8,15 @@ route_update_form_value = 'AlteraForm' # Nome do form para o formulario de alter
 
 # 02 - utilizado na geração das rotinas do routes.py
 table_model_key = '@@TABLE_MODEL@@'  # Delimitador do nome da tabela no modelo
-table_model_value = 'Teste'  # Nome da Tabela no Modelo
+table_model_value = 'Empresa'  # Nome da Tabela no Modelo
 
 # 03 - utilizado na geração das rotinas: lista.html, inclui.html, altera.html e routes.py
 database_name_key = '@@DATABASE_NAME@@'  # Delimitador do nome da tabela no banco de dados
-database_name_value = 'Teste'  # Nome do Banco de Dados
+database_name_value = 'db_projeto_modelo'  # Nome do Banco de Dados
 
 # 04 - utilizado na geração das rotinas: lista.html, inclui.html, altera.html e routes.py
 table_name_key = '@@TABLE_NAME@@'  # Delimitador do nome da tabela no banco de dados
-table_name_value = 'Teste'  # Nome da Tabela no Banco de Dados
+table_name_value = 'tb_empresa_emp'  # Nome da Tabela no Banco de Dados
 
 # 05 - utilizado na geração das rotinas do routes.py
 table_pk_key = '@@TABLE_PK@@'  # Delimitador do nome da Primary Key da tabela no banco de dados

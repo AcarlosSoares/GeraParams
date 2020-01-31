@@ -43,105 +43,111 @@
         <label for="id_nome_model">Nome da Tabela Model</label>
       </div>
 
+    </div>
+
+    <div class="row">
+
+      <div class="input-field col s2">
+        <input id="id_atributo" name="atributo" value="{{ dados.atributo }}" type="text" class="validate">
+        <label for="id_atributo">Atributo</label>
+      </div>
+
       <div class="input-field col s1">
-        <input type="submit" name="gerar_params" value="Gerar" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="gerar Params">
+        <select id="id_pk" name="pk">
+          <!-- <option value="" disabled selected>Escolha opção</option> -->
+          <option value="T">T</option>
+          <option value="F">F</option>
+        </select>
+        <label for="id_pk">Pk</label>
+      </div>
+
+      <div class="input-field col s1">
+        <select id="id_lis" name="lis">
+          <!-- <option value="" disabled selected>Escolha opção</option> -->
+          <option value="T">T</option>
+          <option value="F">F</option>
+        </select>
+        <label for="id_lis">Lis</label>
+      </div>
+
+      <div class="input-field col s1">
+        <select id="id_inc" name="inc">
+          <!-- <option value="" disabled selected>Escolha opção</option> -->
+          <option value="T">T</option>
+          <option value="F">F</option>
+        </select>
+        <label for="id_inc">Inc</label>
+      </div>
+
+      <div class="input-field col s1">
+        <select id="id_alt" name="alt">
+          <!-- <option value="" disabled selected>Escolha opção</option> -->
+          <option value="T">T</option>
+          <option value="F">F</option>
+        </select>
+        <label for="id_alt">Alt</label>
+      </div>
+
+      <div class="input-field col s1">
+        <select id="id_exc" name="exc">
+          <!-- <option value="" disabled selected>Escolha opção</option> -->
+          <option value="T">T</option>
+          <option value="F">F</option>
+        </select>
+        <label for="id_exc">Exc</label>
+      </div>
+
+      <div class="input-field col s1">
+        <select id="id_tipo" name="tipo">
+          <!-- <option value="" disabled selected>Escolha opção</option> -->
+          <option value="int">Int</option>
+          <option value="string">String</option>
+          <option value="boolean">Boolean</option>
+          <option value="dateTime">DateTime</option>
+          <option value="text">Text</option>
+        </select>
+        <label for="id_tipo">Tipo</label>
+      </div>
+
+      <div class="input-field col s1">
+        <input id="id_titulo" name="titulo" type="text" class="validate">
+        <label for="id_titulo">Titulo</label>
+      </div>
+
+      <div class="input-field col s1">
+        <input id="id_tam_bd" name="tam_bd" type="text" class="validate">
+        <label for="id_tam_bd">Tam. BD</label>
+      </div>
+
+      <div class="input-field col s1">
+        <input id="id_tam_lista" name="tam_lista" type="text" class="validate">
+        <label for="id_tam_lista">Tam.Lista</label>
+      </div>
+
+      <div class="input-field col s1">
+        <input id="id_tam_relat" name="tam_relat" type="text" class="validate">
+        <label for="id_tam_relat">Tam. Relat</label>
       </div>
 
     </div>
 
-    <div>
+    <div class="row">
 
-      <div class="row">
+      <div class="input-field col s2">
+        <input type="submit" name="adicionar_atributo" value="Adicionar Atributo" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Adicionar">
+      </div>
 
-        <div class="input-field col s2">
-          <input id="id_atributo" name="atributo" type="text" class="validate">
-          <label for="id_atributo">Atributo</label>
-        </div>
+      <div class="input-field col s2">
+        <input type="submit" name="gerar_params" value="Gerar Params" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="gerar Params">
+      </div>
 
-        <div class="input-field col s1">
-          <select id="id_pk" name="pk">
-            <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="T">T</option>
-            <option value="F">F</option>
-          </select>
-          <label for="id_pk">Pk</label>
-        </div>
+      <div class="input-field col s2">
+        <input type="submit" name="carregar_params" value="Carregar Params" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="carregar Params">
+      </div>
 
-        <div class="input-field col s1">
-          <select id="id_lis" name="lis">
-            <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="T">T</option>
-            <option value="F">F</option>
-          </select>
-          <label for="id_lis">Lis</label>
-        </div>
-
-        <div class="input-field col s1">
-          <select id="id_inc" name="inc">
-            <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="T">T</option>
-            <option value="F">F</option>
-          </select>
-          <label for="id_inc">Inc</label>
-        </div>
-
-        <div class="input-field col s1">
-          <select id="id_alt" name="alt">
-            <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="T">T</option>
-            <option value="F">F</option>
-          </select>
-          <label for="id_alt">Alt</label>
-        </div>
-
-        <div class="input-field col s1">
-          <select id="id_exc" name="exc">
-            <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="T">T</option>
-            <option value="F">F</option>
-          </select>
-          <label for="id_exc">Exc</label>
-        </div>
-
-        <div class="input-field col s1">
-          <select id="id_tipo" name="tipo">
-            <!-- <option value="" disabled selected>Escolha opção</option> -->
-            <option value="int">Int</option>
-            <option value="string">String</option>
-            <option value="boolean">Boolean</option>
-            <option value="dateTime">DateTime</option>
-            <option value="text">Text</option>
-          </select>
-          <label for="id_tipo">Tipo</label>
-        </div>
-
-        <div class="input-field col s1">
-          <input id="id_titulo" name="titulo" type="text" class="validate">
-          <label for="id_titulo">Titulo</label>
-        </div>
-
-        <div class="input-field col s1">
-          <input id="id_tam_bd" name="tam_bd" type="text" class="validate">
-          <label for="id_tam_bd">Tam. BD</label>
-        </div>
-
-        <div class="input-field col s1">
-          <input id="id_tam_lista" name="tam_lista" type="text" class="validate">
-          <label for="id_tam_lista">Tam.Lista</label>
-        </div>
-
-        <div class="input-field col s1">
-          <input id="id_tam_relat" name="tam_relat" type="text" class="validate">
-          <label for="id_tam_relat">Tam. Relat</label>
-        </div>
-
-        <div class="input-field col s1">
-          <input type="submit" value="Adicionar" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Adicionar">
-<!--           <a href="#!" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Novo">
-            <i class="material-icons cor-verde">note_add</i>
-          </a> -->
-        </div>
-
+      <div class="input-field col s2">
+        <a href="{{ url_for('gerarcrud') }}" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Gerar GRUD">Gerar GRUD
+        </a>
       </div>
 
     </div>
@@ -188,7 +194,11 @@
         <td style="vertical-align:middle">{{ value.tam_relat }}</td>
         <td class="text-center center-align">
 
-          <a href="{{ url_for('excluir', id=key) }}" class="btn btn-ligth btn-sm" role="button" title="Alterar Dados">
+          <a href="{{ url_for('alterar', id=key) }}" class="btn btn-ligth btn-sm" role="button" title="Alterar Dados">
+            <i class="material-icons cor-azul" style="vertical-align:middle;">edit</i>
+          </a>
+
+          <a href="{{ url_for('excluir', id=key) }}" class="btn btn-ligth btn-sm" role="button" title="Excluir Dados">
             <i class="material-icons cor-azul" style="vertical-align:middle;">delete</i>
           </a>
 
