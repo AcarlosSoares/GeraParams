@@ -48,12 +48,12 @@
     <div class="row">
 
       <div class="input-field col s2">
-        <input id="id_atributo" name="atributo" value="{{ dados.atributo }}" type="text" class="validate">
+        <input id="id_atributo" name="atributo" value="{{ nova_lista.atributo }}" type="text" class="validate">
         <label for="id_atributo">Atributo</label>
       </div>
 
       <div class="input-field col s1">
-        <select id="id_pk" name="pk">
+        <select id="id_pk" name="pk" value="{{ nova_lista.pk }}">
           <!-- <option value="" disabled selected>Escolha opção</option> -->
           <option value="T">T</option>
           <option value="F">F</option>
@@ -62,7 +62,7 @@
       </div>
 
       <div class="input-field col s1">
-        <select id="id_lis" name="lis">
+        <select id="id_lis" name="lis" value="{{ nova_lista.lis }}" >
           <!-- <option value="" disabled selected>Escolha opção</option> -->
           <option value="T">T</option>
           <option value="F">F</option>
@@ -71,7 +71,7 @@
       </div>
 
       <div class="input-field col s1">
-        <select id="id_inc" name="inc">
+        <select id="id_inc" name="inc" value="{{ nova_lista.inc }}" >
           <!-- <option value="" disabled selected>Escolha opção</option> -->
           <option value="T">T</option>
           <option value="F">F</option>
@@ -80,7 +80,7 @@
       </div>
 
       <div class="input-field col s1">
-        <select id="id_alt" name="alt">
+        <select id="id_alt" name="alt" value="{{ nova_lista.alt }}" >
           <!-- <option value="" disabled selected>Escolha opção</option> -->
           <option value="T">T</option>
           <option value="F">F</option>
@@ -89,7 +89,7 @@
       </div>
 
       <div class="input-field col s1">
-        <select id="id_exc" name="exc">
+        <select id="id_exc" name="exc" value="{{ nova_lista.exc }}" >
           <!-- <option value="" disabled selected>Escolha opção</option> -->
           <option value="T">T</option>
           <option value="F">F</option>
@@ -98,7 +98,7 @@
       </div>
 
       <div class="input-field col s1">
-        <select id="id_tipo" name="tipo">
+        <select id="id_tipo" name="tipo" value="{{ nova_lista.tipo }}" >
           <!-- <option value="" disabled selected>Escolha opção</option> -->
           <option value="int">Int</option>
           <option value="string">String</option>
@@ -110,22 +110,22 @@
       </div>
 
       <div class="input-field col s1">
-        <input id="id_titulo" name="titulo" type="text" class="validate">
+        <input id="id_titulo" name="titulo" value="{{ nova_lista.titulo }}" type="text" class="validate">
         <label for="id_titulo">Titulo</label>
       </div>
 
       <div class="input-field col s1">
-        <input id="id_tam_bd" name="tam_bd" type="text" class="validate">
+        <input id="id_tam_bd" name="tam_bd" value="{{ nova_lista.tam_bd }}" type="text" class="validate">
         <label for="id_tam_bd">Tam. BD</label>
       </div>
 
       <div class="input-field col s1">
-        <input id="id_tam_lista" name="tam_lista" type="text" class="validate">
+        <input id="id_tam_lista" name="tam_lista" value="{{ nova_lista.tam_lista }}" type="text" class="validate">
         <label for="id_tam_lista">Tam.Lista</label>
       </div>
 
       <div class="input-field col s1">
-        <input id="id_tam_relat" name="tam_relat" type="text" class="validate">
+        <input id="id_tam_relat" name="tam_relat" value="{{ nova_lista.tam_relat }}" type="text" class="validate">
         <label for="id_tam_relat">Tam. Relat</label>
       </div>
 
@@ -134,7 +134,11 @@
     <div class="row">
 
       <div class="input-field col s2">
-        <input type="submit" name="adicionar_atributo" value="Adicionar Atributo" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Adicionar">
+        <input type="submit" name="adicionar_atributo" value="Adicionar Atributo" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Adicionar Atributo">
+      </div>
+
+      <div class="input-field col s2">
+        <input type="submit" name="alterar_atributo" value="Alterar Atributo" class="btn btn-ligth btn-sm float-sm-right my-2 mx-2" title="Alterar Atributo">
       </div>
 
       <div class="input-field col s2">
