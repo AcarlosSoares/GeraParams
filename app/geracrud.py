@@ -238,12 +238,19 @@ def gera_lista_html():
       i = 0
       l = ''
       for c in search_title_column_list:
-        if i == 0:
-          l += '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>' + '\n'
-        elif i == len(search_title_column_list) - 1:
-          l += ' ' * 16 + '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>'
-        else:
-          l += ' ' * 16 + '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>' + '\n'
+        if c: # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(search_title_column_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 16 + '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>'
+            else:
+              l += '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 16 + '<th class="text-center" style="width: ' + search_length_column_list[i] + 'px">' + search_title_column_list[i].title() + '</th>' + '\n'
         i += 1
       x = x.replace(search_title_column_key, l)
 
@@ -252,12 +259,19 @@ def gera_lista_html():
       i = 0
       l = ''
       for c in search_detail_column_list:
-        if i == 0:
-          l += '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>' + '\n'
-        elif i == len(search_title_column_list) - 1:
-          l += ' ' * 18 + '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>'
-        else:
-          l += ' ' * 18 + '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>' + '\n'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(search_title_column_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 18 + '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>'
+            else:
+              l += '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>'
+           # trata as demais ocorrencias
+          else:
+            l += ' ' * 18 + '<td>{{ dado.' + search_detail_column_list[i] + ' }}</td>' + '\n'
         i += 1
       x = x.replace(table_column_key, l)
 
@@ -291,12 +305,19 @@ def gera_inclui_html():
       i = 0
       l = ''
       for c in insert_form_list:
-        if i == 0:
-          l += '{{ render_field(form.' + insert_form_list[i] + ') }}' + '\n'
-        elif i == len(insert_form_list) - 1:
-          l += ' ' * 16 + '{{ render_field(form.' + insert_form_list[i] + ') }}'
-        else:
-          l += ' ' * 16 + '{{ render_field(form.' + insert_form_list[i] + ') }}' + '\n'
+        if c: # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += '{{ render_field(form.' + insert_form_list[i] + ') }}' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(insert_form_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 16 + '{{ render_field(form.' + insert_form_list[i] + ') }}'
+            else:
+              l += '{{ render_field(form.' + insert_form_list[i] + ') }}'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 16 + '{{ render_field(form.' + insert_form_list[i] + ') }}' + '\n'
         i += 1
       x = x.replace(insert_form_key, l)
 
@@ -324,12 +345,19 @@ def gera_altera_html():
       i = 0
       l = ''
       for c in update_form_list:
-        if i == 0:
-          l += '{{ render_field(form.' + update_form_list[i] + ') }}' + '\n'
-        elif i == len(update_form_list) - 1:
-          l += ' ' * 16 + '{{ render_field(form.' + update_form_list[i] + ') }}'
-        else:
-          l += ' ' * 16 + '{{ render_field(form.' + update_form_list[i] + ') }}' + '\n'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += '{{ render_field(form.' + update_form_list[i] + ') }}' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(update_form_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 16 + '{{ render_field(form.' + update_form_list[i] + ') }}'
+            else:
+              l += '{{ render_field(form.' + update_form_list[i] + ') }}'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 16 + '{{ render_field(form.' + update_form_list[i] + ') }}' + '\n'
         i += 1
       x = x.replace(update_form_key, l)
 
@@ -417,19 +445,19 @@ def gera_routes():
       n = 0
       for c in search_title_column_list:
         # trata a primeira ocorrencia
-        n = m + int(print_length_column_list[i])
-        if i == 0:
-          l += '[' + "'" + search_title_column_list[i].title() + "'" + ', ' + "'" + 'row.' + table_column_list[i] + "'"  + ', ' + str(m) + ', ' + str(n) + ']' + ',\n'
-        # trata a ultima ocorrencia
-        elif i == len(search_title_column_list) - 1:
-          l += ' ' * 4 + '[' + "'" + search_title_column_list[i].title() + "'" + ', ' + "'" + 'row.' + table_column_list[i] + "'"  + ', ' + str(m) + ', ' + str(n) + ']'
-        # trata as demais ocorrencias
-        else:
-          l += ' ' * 4 + '[' + "'" + search_title_column_list[i].title() + "'" + ', ' + "'" + 'row.' + table_column_list[i] + "'"  + ', ' + str(m) + ', ' + str(n) + ']' + ',\n'
+        if c: # exclui itens em branco
+          n = m + int(print_length_column_list[i])
+          if i == 0:
+            l += '[' + "'" + search_title_column_list[i].title() + "'" + ', ' + "'" + 'row.' + table_column_list[i] + "'"  + ', ' + str(m) + ', ' + str(n) + ']' + ',\n'
+          # trata a ultima ocorrencia
+          elif i == len(search_title_column_list) - 1:
+            l += ' ' * 4 + '[' + "'" + search_title_column_list[i].title() + "'" + ', ' + "'" + 'row.' + table_column_list[i] + "'"  + ', ' + str(m) + ', ' + str(n) + ']'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 4 + '[' + "'" + search_title_column_list[i].title() + "'" + ', ' + "'" + 'row.' + table_column_list[i] + "'"  + ', ' + str(m) + ', ' + str(n) + ']' + ',\n'
         m = n + 20
         i += 1
       x = x.replace(print_list_key, l)
-
     s.write(x)
 
   f.close()
@@ -458,12 +486,16 @@ def gera_forms():
       i = 0
       l = ''
       for c in search_title_column_list:
-        if i == 0:
-          l += '(' + "'" +  table_name_value + '.' + table_column_list[i] + "'" + ',' + "'" + search_title_column_list[i].title() + "'" + '),'
-        elif i == len(search_title_column_list) - 1:
-          l += '(' + "'" +  table_name_value + '.' + table_column_list[i] + "'" + ',' + "'" + search_title_column_list[i].title() + "'" + ')'
-        else:
-          l += '(' + "'" +  table_name_value + '.' + table_column_list[i] + "'" + ',' + "'" + search_title_column_list[i].title() + "'" + '),'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += '(' + "'" +  table_name_value + '.' + table_column_list[i] + "'" + ',' + "'" + search_title_column_list[i].title() + "'" + '),'
+          # trata a ultima ocorrencia
+          elif i == len(search_title_column_list) - 1:
+            l += '(' + "'" +  table_name_value + '.' + table_column_list[i] + "'" + ',' + "'" + search_title_column_list[i].title() + "'" + ')'
+          # trata as demais ocorrencias
+          else:
+            l += '(' + "'" +  table_name_value + '.' + table_column_list[i] + "'" + ',' + "'" + search_title_column_list[i].title() + "'" + '),'
         i += 1
       x = x.replace(ordenarpor_choices_key, l)
 
@@ -471,15 +503,19 @@ def gera_forms():
       i = 0
       l = ''
       for c in insert_form_list:
-        # trata a primeira ocorrencia
-        if i == 0:
-          l += insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
-        # trata a ultima ocorrencia
-        elif i == len(insert_form_list) - 1:
-          l += ' ' * 2 + insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])'
-        # trata as demais ocorrencias
-        else:
-          l += ' ' * 2 + insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(insert_form_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 2 + insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])'
+            else:
+              l += insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 2 + insert_form_list[i] + ' = ' + tipo_atributo_form(insert_form_column_type_list[i]) + '(' + "'" + insert_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
         i += 1
       x = x.replace(route_insert_form_key, l)
 
@@ -487,15 +523,19 @@ def gera_forms():
       i = 0
       l = ''
       for c in update_form_list:
-        # trata a primeira ocorrencia
-        if i == 0:
-          l += update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
-        # trata a ultima ocorrencia
-        elif i == len(update_form_list) - 1:
-          l += ' ' * 2 + update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])'
-        # trata as demais ocorrencias
-        else:
-          l += ' ' * 2 + update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(update_form_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 2 + update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])'
+            else:
+              l += update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 2 + update_form_list[i] + ' = ' + tipo_atributo_form(update_form_column_type_list[i]) + '(' + "'" + update_form_title_list[i] + "'" + ', validators=[DataRequired()])' + '\n'
         i += 1
       x = x.replace(route_update_form_key, l)
 
@@ -527,15 +567,19 @@ def gera_models():
       i = 0
       l = ''
       for c in table_column_list:
-        # trata a primeira ocorrencia
-        if i == 0:
-          l += table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.Integer, primary_key=True)' + '\n'
-        # trata a ultima ocorrencia
-        elif i == len(table_column_list) - 1:
-          l += ' ' * 4 + table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.' + tipo_atributo_model(table_column_type_list[i]) + '(' + table_column_length_list[i] + '), nullable=False)'
-        # trata as demais ocorrencias
-        else:
-          l += ' ' * 4 + table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.' + tipo_atributo_model(table_column_type_list[i]) + '(' + table_column_length_list[i] + '), nullable=False)' + '\n'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.Integer, primary_key=True)' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(table_column_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 4 + table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.' + tipo_atributo_model(table_column_type_list[i]) + '(' + table_column_length_list[i] + '), nullable=False)'
+            else:
+              l += table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.' + tipo_atributo_model(table_column_type_list[i]) + '(' + table_column_length_list[i] + '), nullable=False)'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 4 + table_column_list[i] + '= db.Column(' + "'" + table_column_list[i] + "'" + ', db.' + tipo_atributo_model(table_column_type_list[i]) + '(' + table_column_length_list[i] + '), nullable=False)' + '\n'
         i += 1
       x = x.replace(models_attributes_key, l)
 
@@ -569,16 +613,21 @@ def cria_tabela():
       i = 0
       l = ''
       for c in table_column_list:
-        # trata a primeira ocorrencia
-        if i == 0:
-          l += table_column_list[i] + ' int(11) NOT NULL AUTO_INCREMENT,' + '\n'
-        # trata a ultima ocorrencia
-        elif i == len(table_column_list) - 1:
-          l += ' ' * 4 + table_column_list[i] + ' ' + tipo_atributo_bd(table_column_type_list[i]) + '(' + table_column_length_list[i] + ') NOT NULL,' + '\n'
-          l += ' ' * 4 + 'PRIMARY KEY (' + table_pk_value + ')'
-        # trata as demais ocorrencias
-        else:
-          l += ' ' * 4 + table_column_list[i] + ' ' + tipo_atributo_bd(table_column_type_list[i]) + '(' + table_column_length_list[i] + ') NOT NULL,' + '\n'
+        if c:  # exclui itens em branco
+          # trata a primeira ocorrencia
+          if i == 0:
+            l += table_column_list[i] + ' int(11) NOT NULL AUTO_INCREMENT,' + '\n'
+          # trata a ultima ocorrencia
+          elif i == len(table_column_list) - 1:
+            if len(l) > 0:  # verifica se realmente já incluiu a primeira ocorrencia
+              l += ' ' * 4 + table_column_list[i] + ' ' + tipo_atributo_bd(table_column_type_list[i]) + '(' + table_column_length_list[i] + ') NOT NULL,' + '\n'
+              l += ' ' * 4 + 'PRIMARY KEY (' + table_pk_value + ')'
+            else:
+              l += table_column_list[i] + ' ' + tipo_atributo_bd(table_column_type_list[i]) + '(' + table_column_length_list[i] + ') NOT NULL,' + '\n'
+              l += 'PRIMARY KEY (' + table_pk_value + ')'
+          # trata as demais ocorrencias
+          else:
+            l += ' ' * 4 + table_column_list[i] + ' ' + tipo_atributo_bd(table_column_type_list[i]) + '(' + table_column_length_list[i] + ') NOT NULL,' + '\n'
         i += 1
       x = x.replace(table_column_key, l)
 
