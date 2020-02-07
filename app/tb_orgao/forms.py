@@ -5,7 +5,7 @@ from wtforms import SubmitField, SelectField, StringField
 from wtforms.validators import DataRequired, ValidationError
 from app.tb_orgao.models import Orgao
 
-ordenarpor_choices=[('tb_orgao.dsc_orgao','Descricao')]
+ordenarpor_choices=[('tb_orgao.id_orgao','Seq'),('tb_orgao.dsc_orgao','Descricao')]
 ordem_choices=[('ASC', 'Asc'), ('DESC', 'Desc')]
 
 
@@ -18,11 +18,13 @@ class ListaForm(FlaskForm):
 
 
 class IncluiForm(FlaskForm):
+  id_orgao = IntegerField('Seq', validators=[DataRequired()])
   dsc_orgao = StringField('Descricao', validators=[DataRequired()])
   submit = SubmitField('Enviar')
 
 
 class AlteraForm(FlaskForm):
+  id_orgao = IntegerField('Seq', validators=[DataRequired()])
   dsc_orgao = StringField('Descricao', validators=[DataRequired()])
   submit = SubmitField('Enviar')
 

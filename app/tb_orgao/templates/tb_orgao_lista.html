@@ -79,7 +79,8 @@
 						<!-- Cabeçalho da Tabela -->
 						<thead class="thead-dark">
 							<tr>
-								<th class="text-center" style="width: 100px">Descricao</th>
+								<th class="text-center" style="width: 10px">Seq</th>
+                <th class="text-center" style="width: 100px">Descricao</th>
 								<th class="text-center" style="width: 200px">Ação</th>
 							</tr>
 						</thead>
@@ -89,7 +90,8 @@
 							{% for dado in dados.items %}
 
 								<tr>
-									<td>{{ dado.dsc_orgao }}</td>
+									<td>{{ dado.id_orgao }}</td>
+                  <td>{{ dado.dsc_orgao }}</td>
 									<td class="text-center">
 
 										<!-- Botão Alterar -->

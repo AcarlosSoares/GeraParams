@@ -1,8 +1,0 @@
-# 01 - utilizado na geração das rotinas do routes.py
-route_list_form_key = '@@LIST_FORM@@'  # Delimitador do nome do form para o formulario de listagem
-route_list_form_value = 'ListaForm' # Nome do form para o formulario de listagem
-route_insert_form_key = '@@INSERT_FORM@@'  # Delimitador do nome do form para o formulario de inclusão
-route_insert_form_value = 'IncluiForm' # Nome do form para o formulario de inclusão
-route_update_form_key = '@@UPDATE_FORM@@'  # Delimitador do form para o formulario de alteração
-route_update_form_value = 'AlteraForm' # Nome do form para o formulario de alteração
-

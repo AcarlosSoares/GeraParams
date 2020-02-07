@@ -73,7 +73,7 @@ def tb_orgao_incluir():
 
   if form.validate_on_submit():
     try:
-      dado = Orgao(=form..data, dsc_orgao=form.dsc_orgao.data)
+      dado = Orgao(id_orgao=form.id_orgao.data, dsc_orgao=form.dsc_orgao.data)
       db.session.add(dado)
       db.session.commit()
       flash('Registro foi incluído com sucesso!', 'success')
@@ -119,7 +119,7 @@ def tb_orgao_alterar(id_data):
   if request.method == 'GET':
     try:
       dado = Orgao.query.get(id_data)
-      form..data = dado.
+      form.id_orgao.data = dado.id_orgao
       form.dsc_orgao.data = dado.dsc_orgao
       return render_template('tb_orgao_altera.html', title='Alterar Orgao', form=form)
     except Exception as e:
@@ -133,7 +133,7 @@ def tb_orgao_alterar(id_data):
   if form.validate_on_submit():
     try:
       dado = Orgao.query.get(id_data)
-      dado. = form..data
+      dado.id_orgao = form.id_orgao.data
       dado.dsc_orgao = form.dsc_orgao.data
       db.session.commit()
       flash('Registro foi alterado com sucesso!', 'success')
@@ -170,7 +170,8 @@ def tb_orgao_imprimir():
   titulo = 'LISTA DE Orgao'.upper()
   subtitulo = None
   lista = [
-        ['Descricao', 'row.dsc_orgao', 20, 120]
+    ['Seq', 'row.id_orgao', 50, 60],
+    ['Descricao', 'row.dsc_orgao', 80, 180]
   ]
 
   response = imprimir_reportlab(titulo, subtitulo, lista, dados)
